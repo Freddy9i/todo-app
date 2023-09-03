@@ -18,7 +18,7 @@ export default function Todo({text, state}) {
   } 
 
   return (
-    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c] border-gray-700") + " h-12 flex items-center gap-4 px-4 border-b-[0.1rem]"}>
+    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c] border-gray-700") + " h-12 lg:h-[4.6rem] flex items-center gap-4 px-4 lg:px-6 border-b-[0.1rem]"}>
       <div
         className={
           (state === "completed" ? " bg-blue-600 border-blue-600" : "border-gray-600") +
@@ -26,7 +26,7 @@ export default function Todo({text, state}) {
         }
       >
         <CheckIcon
-          className={(theme === "light" ? "text-white" : "text-[#25273c]") + " h-[0.8rem] w-[0.8rem]"}
+          className={(theme === "light" ? "text-white" : "text-[#25273c]") + " h-[0.8rem] lg:h-[1.4rem] w-[0.8rem] lg:w-[1.4rem]"}
           onClick={() => changeTodoStatus()}
         />
       </div>
@@ -34,7 +34,7 @@ export default function Todo({text, state}) {
       <p
         className={
           (theme === "dark" && state === "active"  ? "text-white" : "") + (state === "completed" ? " line-through text-gray-400" : "") +
-          " grow font-designFont text-[0.8rem]"
+          " grow font-designFont text-[0.8rem] lg:text-[1.4rem]"
         }
       >
         {text}

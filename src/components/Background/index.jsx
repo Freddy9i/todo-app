@@ -4,13 +4,29 @@ import { Context } from "../../Context"
 export default function Background() {
   const { theme } = useContext(Context);
 
+  let imageSrc;
+  if (theme === "light" && window.innerWidth >= 768) {
+    imageSrc = "/src/images/bg-desktop-light.jpg";
+  } else if (theme === "dark" && window.innerWidth >= 768) {
+    imageSrc = "/src/images/bg-desktop-dark.jpg";
+  } else if (theme === "light" && window.innerWidth < 768) {
+    imageSrc = "/src/images/bg-mobile-light.jpg";
+  } else {
+    imageSrc = "/src/images/bg-mobile-dark.jpg";
+  }
+
   return (
     <>
-      <img 
-        src={(theme === "light" ? "/src/images/bg-mobile-light.jpg" : "src/images/bg-mobile-dark.jpg")}
-        className=" h-[11.55rem] w-screen object-cover"
+      <img
+        src={imageSrc}
+        className="h-[11.55rem] lg:h-[21.7rem] w-screen object-cover"
       />
-      <div className={(theme === "light" ? "bg-gray-100" : "bg-[#161722]") + " h-[calc(100vh-11.55rem)]"}></div>
+      <div
+        className={
+          (theme === "light" ? "bg-gray-100" : "bg-[#161722]") +
+          " h-[calc(100vh-11.55rem)] lg:h-[calc(100vh-21.7rem)]"
+        }
+      ></div>
     </>
   );
 }

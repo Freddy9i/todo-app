@@ -5,7 +5,7 @@ export default function FilterTodos() {
   const { currentFilter, setCurrentFilter, theme } = useContext(Context);
 
   return (
-    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c]") + " h-12 flex items-center justify-center gap-4 px-4 rounded-md"}>
+    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c]") + " h-12 w-full lg:w-[38.5rem] flex items-center justify-center gap-4 px-4 rounded-md"}>
       <button
         className={
           (currentFilter === "all" ? "text-blue-600" : "text-gray-500") +

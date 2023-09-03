@@ -18,7 +18,7 @@ export default function TodoContainer() {
   });
 
   return (
-    <div className="rounded-md max-h-[calc(100vh-25rem)] overflow-scroll">
+    <div className="rounded-md w-full lg:w-[38.5rem] max-h-[calc(100vh-22rem)] lg:max-h-[calc(100vh-31rem)] overflow-scroll">
       {
         filteredTodos.map(todo => (
           <Todo 
