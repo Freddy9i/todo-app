@@ -15,7 +15,11 @@ export default function Todo({text, state}) {
       }
       return todo;
     }));
-  } 
+  }
+
+  const deleteTodo = () => {
+    setTodos(todos.filter(todo => todo.text !== text));
+  }
 
   return (
     <div className={(theme === "light" ? "bg-white" : "bg-[#25273c] border-gray-700") + " h-12 lg:h-[4.6rem] flex items-center gap-4 px-4 lg:px-6 border-b-[0.1rem]"}>
@@ -41,7 +45,7 @@ export default function Todo({text, state}) {
       </p>
       <XMarkIcon
         className={(theme === "light" ? "" : "text-gray-500") + " h-[1.2rem] w-[1.2rem] hover:cursor-pointer"}
-        onClick={() => setTodos(todos.filter((todo) => todo.text !== text))}
+        onClick={() => deleteTodo()}
       />
     </div>
   );
