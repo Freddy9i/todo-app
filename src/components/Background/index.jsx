@@ -6,13 +6,13 @@ export default function Background() {
 
   let imageSrc;
   if (theme === "light" && window.innerWidth >= 768) {
-    imageSrc = "/public/bg-desktop-light.jpg";
+    imageSrc = "/bg-desktop-light.jpg";
   } else if (theme === "dark" && window.innerWidth >= 768) {
-    imageSrc = "/public/bg-desktop-dark.jpg";
+    imageSrc = "/bg-desktop-dark.jpg";
   } else if (theme === "light" && window.innerWidth < 768) {
-    imageSrc = "/public/bg-mobile-light.jpg";
+    imageSrc = "/bg-mobile-light.jpg";
   } else {
-    imageSrc = "/public/bg-mobile-dark.jpg";
+    imageSrc = "/bg-mobile-dark.jpg";
   }
 
   return (
