@@ -1,3 +1,5 @@
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+
 import { useContext, useRef } from "react";
 import { Context } from "../../Context";
 
@@ -21,17 +23,16 @@ export default function TodoCreator() {
   };
 
   return (
-    <div className="h-11 flex items-center gap-4 px-4 bg-white rounded-md">
-        <img 
-            src="/src/icons/icon-check.svg"
-            className="h-[1.1rem] w-[1.1rem] border-[0.1rem] border-gray-600 rounded-full p-1"
-            onClick={() => addTodo()}
-        />
+    <div className="h-11 flex items-center justify-between gap-4 px-4 bg-white rounded-md">
         <input 
             ref={inputRef}
             type="text"
             placeholder="Create a new todo..."
-            className="font-designFont text-[0.8rem] hover:outline-0"
+            className="font-designFont text-[0.8rem] hover:outline-0 w-full"
+        />
+        <ArrowRightIcon 
+            className="h-[1.7rem] w-[1.7rem] rounded-full p-1 hover:cursor-pointer"
+            onClick={() => addTodo()}
         />
     </div>
   );

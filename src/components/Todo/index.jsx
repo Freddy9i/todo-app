@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../../Context";
+import { XMarkIcon, CheckIcon } from '@heroicons/react/24/solid'
 
 export default function Todo({text, state}) {
   const { todos, setTodos } = useContext(Context);
@@ -18,19 +19,29 @@ export default function Todo({text, state}) {
 
   return (
     <div className="h-12 flex items-center gap-4 px-4 bg-white border-b-[0.1rem]">
-      <img
-        src="/src/icons/icon-check.svg"
-        className={(state === 'completed' ? "bg-purple-800":"")+" h-[1.1rem] w-[1.1rem] border-[0.1rem] border-gray-600 rounded-full p-1"}
-        onClick={() => changeTodoStatus()}
-      />
-      <p 
-        className={(state === 'completed' ? "line-through text-gray-400" : "")+" grow font-designFont text-[0.8rem]"}
-      >{text}
+      <div
+        className={
+          (state === "completed" ? " bg-blue-600 border-blue-600" : "border-gray-600") +
+          " border-[0.1rem] rounded-full p-[0.1rem] hover:cursor-pointer"
+        }
+      >
+        <CheckIcon
+          className=" h-[0.8rem] w-[0.8rem] text-white"
+          onClick={() => changeTodoStatus()}
+        />
+      </div>
+
+      <p
+        className={
+          (state === "completed" ? "line-through text-gray-400" : "") +
+          " grow font-designFont text-[0.8rem]"
+        }
+      >
+        {text}
       </p>
-      <img
-        src="/src/icons/icon-cross.svg"
-        className="h-[0.7rem] w-[0.7rem]"
-        onClick={() => setTodos(todos.filter(todo => todo.text !== text))}
+      <XMarkIcon
+        className="h-[1.2rem] w-[1.2rem] hover:cursor-pointer"
+        onClick={() => setTodos(todos.filter((todo) => todo.text !== text))}
       />
     </div>
   );
