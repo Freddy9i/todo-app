@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { Context } from "../../Context";
 
 export default function FilterTodos() {
-  const { currentFilter, setCurrentFilter } = useContext(Context);
+  const { currentFilter, setCurrentFilter, theme } = useContext(Context);
 
   return (
-    <div className="h-12 flex items-center justify-center gap-6 px-4 bg-white rounded-md">
+    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c]") + " h-12 flex items-center justify-center gap-4 px-4 rounded-md"}>
       <button
         className={
-          (currentFilter === "all" ? "text-blue-600" : "") +
-          " font-designFont text-[0.8rem]"
+          (currentFilter === "all" ? "text-blue-600" : "text-gray-500") +
+          " font-designFont font-bold text-[0.8rem]"
         }
         onClick={() => setCurrentFilter("all")}
       >
@@ -18,8 +18,8 @@ export default function FilterTodos() {
 
       <button
         className={
-          (currentFilter === "active" ? "text-blue-600" : "") +
-          " font-designFont text-[0.8rem]"
+          (currentFilter === "active" ? "text-blue-600" : "text-gray-500") +
+          " font-designFont font-bold text-[0.8rem]"
         }
         onClick={() => setCurrentFilter("active")}
       >
@@ -28,8 +28,8 @@ export default function FilterTodos() {
 
       <button
         className={
-          (currentFilter === "completed" ? "text-blue-600" : "") +
-          " font-designFont text-[0.8rem]"
+          (currentFilter === "completed" ? "text-blue-600" : "text-gray-500") +
+          " font-designFont font-bold text-[0.8rem]"
         }
         onClick={() => setCurrentFilter("completed")}
       >

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../../Context";
 
 export default function TodoFooter() {
-  const { todos, setTodos } = useContext(Context);
+  const { todos, setTodos, theme } = useContext(Context);
   const activeTodosAmount = todos.filter(
     (todo) => todo.state === "active"
   ).length;
@@ -12,8 +12,8 @@ export default function TodoFooter() {
   };
 
   return (
-    <div className="h-12 flex items-center justify-between px-4 bg-white rounded-md">
-      <p className="font-designFont text-[0.8rem]">
+    <div className={(theme === "light" ? "bg-white" : "bg-[#25273c]") + " h-12 flex items-center justify-between px-4 rounded-md"}>
+      <p className={(theme === "light" ? "" : "text-gray-400") + " font-designFont text-[0.8rem]"}>
         {activeTodosAmount} items left
       </p>
       <button
